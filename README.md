@@ -37,7 +37,7 @@
 > Clone the repo on your local machine.
 >
 ```bash
-git clone https://github.com/upes-open/OSoC-MeetingMinutes-MOM-Generator.git
+git clone https://github.com/upes-open/OSoC-Advanced-Video-Controller-Extension.git
 ```
 >
 > * Create a new branch `<Your_GitHub_username>`
