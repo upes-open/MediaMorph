@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Out</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- <button id="openModal">Open Pop-up</button> -->
+    <div id="openModal">
+        Open Pop-Up
+        <div></div>
+      </div>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>OSOC</h2>
+    <img src="images/logo.png" alt="" height="60px" width="60px" style="align-self: center; background-color: white; border-radius: 100%; border: 5px solid black;">
+    <br>
+    <!-- <input type="range" id="volumeSlider" min="0" max="200" value="100" step="1"> -->
+    <input type="range" id="volumeSlider" min="0" max="200" value="100" step="1">
+<span id="volumePercentage">100%</span>
+    
+
+    <p>This is a pop-up!</p>
+  </div>
+</div>
+<script src="app.js"></script>
+    
+</body>
+</html>
