@@ -1,1 +1,233 @@
 /* CSS for popup.html */
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+    display: block
+}
+
+[hidden] {
+    display: none
+}
+
+body {
+    line-height: 1
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+    content: '';
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+strong {
+    font-weight: 700
+}
+
+.link {
+    text-decoration: none
+}
+
+.link:hover {
+    text-decoration: underline
+}
+
+.link--external {
+    color: #1c70fe
+}
+
+.is-hidden {
+    display: none
+}
+
+body {  
+    padding: 1em;
+    font-size: .8275em;
+    line-height: 1.5em;
+    font-family: 'Helvetica Neue', 'Lucida Grande', sans-serif;
+    width: 350px;
+    color: white;
+    background-color: #000000;
+}
+
+.header {
+    margin-bottom: 2em;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+}
+
+.title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.title_icon {
+    vertical-align: text-bottom;
+    height: 1.375em;
+    width: 1.375em;
+}
+
+.title_name {
+    display: inline-block;
+    padding: 0 0.2em;
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-left: 0.3em;
+    color: #fca311;
+}
+
+.title_desc {
+    margin-top: 2.5%;
+    text-align: left;
+    color: #e5e5e5;
+}
+
+.volume-slider {
+    margin-top: 1em
+}
+
+.slider {
+    outline: 0;
+    width: 100%;
+}
+
+.volume-info {
+    display: flex;
+    text-align: center;
+    white-space: nowrap;
+    color: #e5e5e5;
+}
+
+.volume-current {
+    font-weight: 700;
+    width: 100%
+}
+
+.current-val {
+    font-weight: 700
+}
+
+.buttons {
+    margin-top: 2.5%;
+    display: flex;
+    justify-content: space-between;
+}
