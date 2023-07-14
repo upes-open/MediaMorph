@@ -6,7 +6,7 @@
     "128": "logo.png"
   },
   "permissions": ["activeTab"],
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": "logo.png"
   }
