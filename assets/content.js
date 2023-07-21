@@ -1,7 +1,7 @@
-// Stores the volume control function for the video found in the current tab
+// stores the volume control function for the video found in the current tab
 let volumeControlFn
 
-// Listen for click on the volume icon
+// listens for the message from the background script
 chrome.runtime.onMessage.addListener(
     function (request) {
         if (request.message === "pass_to_content" && typeof request.value === 'number') {
@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener(
     }
 );
 
-// Creates the volume toggle function
+// creates the volume control function using web audio api
 function createVolumeControlFunction() {
     const videoElement = document.querySelector("video")
 
