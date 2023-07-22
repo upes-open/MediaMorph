@@ -5,9 +5,25 @@
   "icons": {
     "128": "logo.png"
   },
-  "permissions": ["activeTab"],
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "/assets/content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "/assets/background.js"
   }
 }
