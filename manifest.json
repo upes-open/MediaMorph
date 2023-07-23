@@ -3,15 +3,15 @@
   "version": "0.0.1",
   "manifest_version": 3,
   "icons": {
-    "128": "logo.png"
+    "128": "assets/images/logo.png"
   },
   "permissions": [
     "activeTab",
     "scripting"
   ],
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": "logo.png"
+    "default_popup": "/assets/popup.html",
+    "default_icon": "/assets/images/logo.png"
   },
   "content_scripts": [
     {
