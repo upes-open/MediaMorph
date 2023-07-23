@@ -279,3 +279,8 @@ body {
     margin-left: 0px;
     width:120px;
 }
+
+.speed-value {
+    padding-top: 5%;
+    text-align: center;
+}
