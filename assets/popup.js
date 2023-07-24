@@ -42,4 +42,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         speedVal.textContent = `Speed: ${speed.toFixed(1)}x`;
     });
+
+    const pipButton = document.querySelector(".pip-button");
+    pipButton.addEventListener("click", function () {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            const activeTab = tabs[0];
+            if (activeTab) {
+                chrome.tabs.sendMessage(activeTab.id, {
+                    message: 'pip',
+                })
+                    .then(console.log('Sent to content.js:'))
+                    .catch(error => console.error('Error sending message to content.js:', error));
+            } else {
+                console.error('No active tab found.');
+            }
+        });
+    });
 });
