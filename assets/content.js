@@ -40,6 +40,7 @@ function createVolumeControlFunction() {
     }
 }
 
+// controls the video speed
 function toggleSpeed(c, speed) {
     const videoElement = document.querySelector("video");
     if (videoElement !== null) {
@@ -50,6 +51,7 @@ function toggleSpeed(c, speed) {
     }
 }
 
+// enables picture in picture
 function enablePictureInPicture() {
     const videoElement = document.querySelector("video");
     if (videoElement !== null) {

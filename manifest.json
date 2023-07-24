@@ -7,7 +7,8 @@
   },
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "action": {
     "default_popup": "/assets/popup.html",
@@ -25,5 +26,19 @@
   ],
   "background": {
     "service_worker": "/assets/background.js"
+  },
+  "commands": {
+    "skip_forward": {
+      "suggested_key": {
+        "default": "Ctrl+Right"
+      },
+      "description": "Skip Forward 5 Seconds"
+    },
+    "skip_backward": {
+      "suggested_key": {
+        "default": "Ctrl+Left"
+      },
+      "description": "Skip Backward 5 Seconds"
+    }
   }
 }
