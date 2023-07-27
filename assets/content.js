@@ -14,6 +14,9 @@ chrome.runtime.onMessage.addListener(
         if (request.message === "speed_down_video" && typeof request.value === 'number') {
             toggleSpeed(-1, request.value);
         }
+        if (request.message === "pip") {
+            enablePictureInPicture();
+        }
     }
 );
 
@@ -37,6 +40,7 @@ function createVolumeControlFunction() {
     }
 }
 
+// controls the video speed
 function toggleSpeed(c, speed) {
     const videoElement = document.querySelector("video");
     if (videoElement !== null) {
@@ -44,5 +48,13 @@ function toggleSpeed(c, speed) {
         else speed -= 0.1
 
         videoElement.playbackRate = speed;
+    }
+}
+
+// enables picture in picture
+function enablePictureInPicture() {
+    const videoElement = document.querySelector("video");
+    if (videoElement !== null) {
+        videoElement.requestPictureInPicture();
     }
 }

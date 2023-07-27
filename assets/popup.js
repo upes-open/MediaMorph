@@ -22,24 +22,41 @@ document.addEventListener("DOMContentLoaded", function () {
     const speedVal = document.querySelector(".speed-value");
 
     speedUp.addEventListener("click", function () {
-        if (speed <= 5){
+        if (speed <= 5) {
             chrome.runtime.sendMessage({
                 message: 'speed_up_video',
                 value: speed
             });
-            speed+=0.1;
+            speed += 0.1;
         }
         speedVal.textContent = `Speed: ${speed.toFixed(1)}x`;
     });
 
     speedDown.addEventListener("click", function () {
-        if (speed >= 0){
+        if (speed >= 0) {
             chrome.runtime.sendMessage({
                 message: 'speed_down_video',
                 value: speed
             });
-            speed-=0.1;
+            speed -= 0.1;
         }
         speedVal.textContent = `Speed: ${speed.toFixed(1)}x`;
+    });
+
+    //pip functionality
+    const pipButton = document.querySelector(".pip-button");
+    pipButton.addEventListener("click", function () {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            const activeTab = tabs[0];
+            if (activeTab) {
+                chrome.tabs.sendMessage(activeTab.id, {
+                    message: 'pip',
+                })
+                    .then(console.log('Sent to content.js:'))
+                    .catch(error => console.error('Error sending message to content.js:', error));
+            } else {
+                console.error('No active tab found.');
+            }
+        });
     });
 });
