@@ -7,6 +7,7 @@
   },
   "permissions": [
     "activeTab",
+    "tabs",
     "scripting",
     "storage"
   ],
@@ -39,6 +40,16 @@
         "default": "Ctrl+Left"
       },
       "description": "Skip Backward 5 Seconds"
+    },
+    "toggle_autoplay": {
+      "suggested_key": {
+        "default": "Ctrl+Down"
+      },
+      "description": "Toggle Shorts Autoplay"
     }
+  },
+  "options_ui": {
+    "page": "assets/settings/settings.html",
+    "open_in_tab": true
   }
 }
