@@ -31,21 +31,27 @@
   "commands": {
     "skip_forward": {
       "suggested_key": {
-        "default": "Ctrl+Right"
+        "default": "Ctrl+Shift+Right"
       },
       "description": "Skip Forward 5 Seconds"
     },
     "skip_backward": {
       "suggested_key": {
-        "default": "Ctrl+Left"
+        "default": "Ctrl+Shift+Left"
       },
       "description": "Skip Backward 5 Seconds"
     },
-    "toggle_autoplay": {
+    "enable_autoplay": {
       "suggested_key": {
-        "default": "Ctrl+Down"
+        "default": "Ctrl+Shift+Down"
       },
-      "description": "Toggle Shorts Autoplay"
+      "description": "Toggle Auto Skip"
+    },
+    "disable_autoplay": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Up"
+      },
+      "description": "Disable Auto Skip"
     }
   },
   "options_ui": {

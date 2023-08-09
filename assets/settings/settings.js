@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const settingsForm = document.getElementById("settingsForm");
     const defaultPlaybackSpeedInput = document.getElementById("defaultPlaybackSpeed");
-    const preferredPiPPlayerSizeInput = document.getElementById("preferredPiPPlayerSize");
     const defaultVolumeLevelInput = document.getElementById("defaultVolumeLevel");
 
     // Save settings when the form is submitted
