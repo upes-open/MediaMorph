@@ -1,59 +1,33 @@
+let autoplayInterval;
+
 // recieves message from popup.js
 chrome.runtime.onMessage.addListener((request) => {
-
-    if (request.message === 'pass_to_background' && typeof request.value === 'number') {
+    // change volume
+    if (request.message === 'change_vol') {
         const multiplier = request.value;
-        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            const activeTab = tabs[0];
-            if (activeTab) {
-                chrome.tabs.sendMessage(activeTab.id, {
-                    message: 'pass_to_content',
-                    value: multiplier
-                })
-                    .then(console.log('Sent to content.js:'))
-                    .catch(error => console.error('Error sending message to content.js:', error));
-            } else {
-                console.error('No active tab found.');
-            }
-        });
+        sendMessageToContentScript({ message: 'update_vol', value: multiplier })
     }
 
+    // change speed up
     if (request.message === 'speed_up_video' && typeof request.value === 'number') {
         const speed = request.value;
-        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            const activeTab = tabs[0];
-            if (activeTab) {
-                chrome.tabs.sendMessage(activeTab.id, {
-                    message: 'speed_up_video',
-                    value: speed
-                })
-                    .then(console.log('Sent to content.js:'))
-                    .catch(error => console.error('Error sending message to content.js:', error));
-            } else {
-                console.error('No active tab found.');
-            }
-        });
+        sendMessageToContentScript({ message: 'speed_up_video', value: speed })
     }
 
+    // change speed down
     if (request.message === 'speed_down_video' && typeof request.value === 'number') {
         const speed = request.value;
-        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            const activeTab = tabs[0];
-            if (activeTab) {
-                chrome.tabs.sendMessage(activeTab.id, {
-                    message: 'speed_down_video',
-                    value: speed
-                })
-                    .then(console.log('Sent to content.js:'))
-                    .catch(error => console.error('Error sending message to content.js:', error));
-            } else {
-                console.error('No active tab found.');
-            }
-        });
+        sendMessageToContentScript({ message: 'speed_down_video', value: speed })
+    }
+
+    //change speed
+    if (request.message === 'change_speed') {
+        const speed = request.value;
+        sendMessageToContentScript({ message: 'update_speed', value: speed })
     }
 });
 
-// listens for the skip message from the popup script
+// listens for shortcut commands of skipping shorts forward and backward
 chrome.commands.onCommand.addListener(function (command) {
     const tabQueryOptions = { active: true, currentWindow: true };
     chrome.tabs.query(tabQueryOptions, function (tabs) {
@@ -63,11 +37,29 @@ chrome.commands.onCommand.addListener(function (command) {
             skipVideoBySeconds(tab.id, 5);
         } else if (command === "skip_backward") {
             skipVideoBySeconds(tab.id, -5);
+        } else if (command === "enable_autoplay") {
+            enableAutoplay(tab.id);
+        } else if (command === "disable_autoplay") {
+            disableAutoplay(tab.id);
         }
     });
 });
 
-// skips the video by the specified number of seconds
+// sends message to content.js
+function sendMessageToContentScript(message, value) {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const activeTab = tabs[0];
+        if (activeTab) {
+            chrome.tabs.sendMessage(activeTab.id, message, value)
+                .then(console.log('Message sent to content.js:', message))
+                .catch((error) => console.error('Error sending message to content.js:', error));
+        } else {
+            console.error('No active tab found.');
+        }
+    });
+}
+
+// func that skips the shorts by the specified number of seconds
 function skipVideoBySeconds(tabId, seconds) {
     chrome.scripting.executeScript({
         target: { tabId: tabId },
@@ -78,5 +70,46 @@ function skipVideoBySeconds(tabId, seconds) {
             }
         },
         args: [seconds],
+    });
+}
+
+// func that applies autoplay
+function autoplay(tabId) {
+    chrome.scripting.executeScript({
+        target: { tabId: tabId },
+        func: function () {
+            let videoElement = document.querySelector("video");
+            let nextBtn = document.querySelector('[aria-label="Next video"]');
+            if (nextBtn && videoElement) {
+                videoElement.loop = false;
+                videoElement.addEventListener("ended", function () {
+                    nextBtn.click();
+                });
+            }
+        },
+    });
+}
+
+// func that enables autoplay
+function enableAutoplay(tabId) {
+    displayOnConsole(tabId, "Autoplay enabled.");
+    autoplayInterval = setInterval(function () {
+        autoplay(tabId);
+    }, 7000);
+}
+
+// func that disables autoplay
+function disableAutoplay(tabId) {
+    displayOnConsole(tabId, "Autoplay disabled from the next short...");
+    clearInterval(autoplayInterval);
+}
+
+function displayOnConsole(tabId, message) {
+    chrome.scripting.executeScript({
+        target: { tabId: tabId },
+        func: function (msg) {
+            alert(msg);
+        },
+        args: [message]
     });
 }
