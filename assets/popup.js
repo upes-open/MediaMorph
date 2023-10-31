@@ -73,18 +73,27 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Save Video functionality
     saveVideoButton.addEventListener("click", function () {
-        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            const activeTab = tabs[0];
-            if (activeTab) {
-                const videoInfo = {
-                    url: activeTab.url,
-                    time: Date.now() // You can modify this to get the video playback time
-                };
+        chrome.scripting.executeScript({
+            target: { tabId: activeTab.id },
+            function: function () {
+                const videoElement = document.querySelector("video");
+                if (videoElement) {
+                    const videoInfo = {
+                        url: window.location.href, // Assuming you are on a YouTube page
+                        time: videoElement.currentTime
+                    };
+                    return videoInfo;
+                }
+                return null;
+            }
+        }, (result) => {
+            if (result && result[0]) {
+                const videoInfo = result[0];
                 chrome.storage.local.set({ 'savedVideo': videoInfo }, function () {
                     console.log('Video saved:', videoInfo);
                 });
             } else {
-                console.error('No active tab found.');
+                console.error('No video found on the current page.');
             }
         });
     });
