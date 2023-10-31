@@ -5,38 +5,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/popup.css" />
+  <link rel="stylesheet" href="popup.css" />
   
   <title>Advanced Video Controls</title>
 </head>
 
 <body>
   <header class="header">
-    <div class="title">
-      <img class="title_icon" src="images/logo.png" alt="Advanced Video Controls">
+      <img class="title_icon" src="images/logo2.svg" alt="Advanced Video Controls">
       <h3 class="title_name">Advanced Video Controls</h3>
-    </div>
-    <div class="title_desc">
-      Use the slider below to control the volume of the current tab.
-    </div>
   </header>
 
   <div class="volume-slider">
+    <img src="images/volume_logo.png" alt="Volume slider">
+    <span class="volume-min">0%</span>
     <input class="slider" type="range" min="0" max="200" step="1" value="100" autofocus>
+    <span class="volume-max">200%</span>
   </div>
 
   <div class="volume-info">
-    <span class="volume-min">0 %</span>
     <span class="volume-current">
-      Volume:
-      <span class="current-val">100</span> %
+      <span class="current-val">100</span>%
     </span>
-    <span class="volume-max">200 %</span>
   </div>
 
   <div class="buttons">
-    <span class="ocr-button" data-tooltip="Optical Character Recognition">
-      <img src="images/ocr_logo.png" alt="OCR">
+    <span class="ocr-button" data-tooltip="Coming Soon">
+      <img src="images/ocr_logo.png" alt="OCR" style="filter: grayscale(100%);">
     </span>
 
     <span class="speed-buttons">
@@ -48,12 +43,24 @@
     <span class="pip-button" data-tooltip="Picture In Picture">
       <img src="images/pip_logo.png">
     </span>
-    <div class="autoscroll">
-      <button class="btn autoplay-button">Autoscroll Shorts</button>
-    </div>
-    <div class="settings">
-      <button class="btn settings-button">Settings</button>
   </div>
+
+  <div>
+    Ctrl+Shift+Left arrow - skip backward <br>
+    Ctrl+Shift+Right arrow - skip forward <br>
+    Ctrl+Shift+Up - Enable autoplay shorts <br>
+    Ctrl+Shift+Down - Disable autoplay shorts <br>
+  </div>
+
+  <div class="config">    
+      <!-- <div class="autoscroll">
+        <button class="btn autoplay-button" data-tooltip="Use Ctrl+Shift+Up to enable and Ctrl+Shift+Down to disable">Autoscroll</button>
+      </div> -->
+      <div class="settings">
+        <button class="btn settings-button">Settings</button>
+      </div>
+  </div>
+    
   <script src="/assets/popup.js"></script>
 </body>
 </html>

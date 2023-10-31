@@ -54,7 +54,7 @@ function loadSettings() {
 // creates the volume control function using web audio api
 function createVolumeControlFunction() {
     const videoElement = document.querySelector("video")
-    if (!videoElement) {
+    if (!videoElement) { 
         return undefined
     }
     const audioCtx = new AudioContext()
@@ -75,7 +75,6 @@ function toggleSpeed(c, speed) {
     if (videoElement !== null) {
         if (c === 1) speed += 0.1;
         else speed -= 0.1
-
         videoElement.playbackRate = speed;
     }
 }

@@ -96,6 +96,7 @@ function enableAutoplay(tabId) {
     autoplayInterval = setInterval(function () {
         autoplay(tabId);
     }, 7000);
+    location.reload();
 }
 
 // func that disables autoplay

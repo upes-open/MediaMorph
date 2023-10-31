@@ -1,86 +1,5 @@
 /* CSS for popup.html */
-a,
-abbr,
-acronym,
-address,
-applet,
-article,
-aside,
-audio,
-b,
-big,
-blockquote,
-body,
-canvas,
-caption,
-center,
-cite,
-code,
-dd,
-del,
-details,
-dfn,
-div,
-dl,
-dt,
-em,
-embed,
-fieldset,
-figcaption,
-figure,
-footer,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header,
-hgroup,
-html,
-i,
-iframe,
-img,
-ins,
-kbd,
-label,
-legend,
-li,
-main,
-mark,
-menu,
-nav,
-object,
-ol,
-output,
-p,
-pre,
-q,
-ruby,
-s,
-samp,
-section,
-small,
-span,
-strike,
-strong,
-sub,
-summary,
-sup,
-table,
-tbody,
-td,
-tfoot,
-th,
-thead,
-time,
-tr,
-tt,
-u,
-ul,
-var,
-video {
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -89,71 +8,6 @@ video {
     vertical-align: baseline
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section {
-    display: block
-}
-
-[hidden] {
-    display: none
-}
-
-body {
-    line-height: 1
-}
-
-ol,
-ul {
-    list-style: none
-}
-
-blockquote,
-q {
-    quotes: none
-}
-
-blockquote:after,
-blockquote:before,
-q:after,
-q:before {
-    content: '';
-    content: none
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0
-}
-
-strong {
-    font-weight: 700
-}
-
-.link {
-    text-decoration: none
-}
-
-.link:hover {
-    text-decoration: underline
-}
-
-.link--external {
-    color: #1c70fe
-}
-
-.is-hidden {
-    display: none
-}
 
 body {  
     padding: 1em;
@@ -162,17 +16,26 @@ body {
     font-family: 'Helvetica Neue', 'Lucida Grande', sans-serif;
     width: 350px;
     color: white;
-    background-color: #000000;
+    background-color: #303030;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .header {
     margin-bottom: 2em;
-    display: block;
-    margin: 0;
-    padding: 0;
-    border: 0;
+    font-size: 2em;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font: inherit;
+    width: 100%;
 }
+
+
 
 .title {
     display: flex;
@@ -182,27 +45,31 @@ body {
 
 .title_icon {
     vertical-align: text-bottom;
-    height: 1.375em;
-    width: 1.375em;
+    height: 2em;
+    width: 2em;
 }
 
 .title_name {
     display: inline-block;
     padding: 0 0.2em;
-    font-size: 1.25em;
+    font-size: 1.75em;
     font-weight: 700;
     margin-left: 0.3em;
     color: #fca311;
 }
 
-.title_desc {
-    margin-top: 2.5%;
-    text-align: left;
-    color: #e5e5e5;
+.volume-slider {
+    margin-top: 2em;
+    display: flex;
 }
 
-.volume-slider {
-    margin-top: 1em
+.volume-slider img{
+    height: 20px;
+}
+
+.volume-slider span{
+    text-align: center;
+    width: 70px
 }
 
 .slider {
@@ -230,12 +97,45 @@ body {
     margin-top: 2.5%;
     display: flex;
     justify-content: space-between;
+    width: 70%;
 }
 
 .buttons img{
     width:50px;
     height: 50px;
     position:relative;
+}
+
+.config{
+    margin-top: 2.5%;
+    width: 90%;
+    display: flex;
+    justify-content:space-evenly;
+}
+.config div{
+    width: 100px;
+}
+
+button{
+    /* padding: 0% 5%;
+    border-radius: 10% 10% 10% 10%; */
+    
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 60;
+    border-radius: 3px;
+    padding: 3px 5px;
+    border: 0;
+    color: #fff;
+    background: #fca311;
+    line-height: 1.15;
+    font-size: 16px;
+    :hover {
+        transition: all .1s ease;
+        box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+    }
+
 }
 
 /* hover text over img */
@@ -257,7 +157,8 @@ body {
     position: absolute;
     left:100%;
     margin-left: 0px;
-    width:180px;
+    width: 145px;
+    z-index: 10;
 }
 
 .pip-button{
@@ -277,7 +178,9 @@ body {
     position: absolute;
     right:100%;
     margin-left: 0px;
-    width:120px;
+    width:145px;
+    z-index: 10;
+
 }
 
 .speed-value {
