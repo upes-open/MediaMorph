@@ -1,6 +1,6 @@
 <div align='center'>
 
-## Advanced Video Controller Extension
+## MediaMorph
 
 <img src='https://github.com/upes-open/Git-WorkShop/assets/101355193/b9315c8e-5aaa-438e-ab5a-48b25571dc90' width=100>
 
@@ -14,13 +14,15 @@
 </div>
 
 ### About the Project
-> A Chrome extension enhancing video player functionalities: 
->   - Control video speed
+> A Chrome extension enhancing media player functionalities: 
+>   - More precise control over video speed
 >   - Adjust sound up to 200%
 >   - OCR for copying text in the video
 >   - Clickable video links
 >   - picture-in-picture
->   - Video controls for YouTube shorts
+>   - Video seek controls for YouTube shorts
+>   - Colorblind modes
+>   - And much more
 
 ### Tech Stack
 
