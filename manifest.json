@@ -1,7 +1,8 @@
 {
+  "manifest_version": 3,
   "name": "MediaMorph",
   "version": "0.0.1",
-  "manifest_version": 3,
+  "description": "Your extension description goes here.",
   "icons": {
     "128": "assets/images/logo.png"
   },
@@ -9,20 +10,24 @@
     "activeTab",
     "tabs",
     "scripting",
-    "storage"
+    "storage",
+    "identity",
+    "identity.email",
+    "identity.profile",
+    "identity.userinfo.email"
   ],
   "action": {
     "default_popup": "/assets/popup.html",
-    "default_icon": "/assets/images/logo.png"
+    "default_icon": {
+      "16": "assets/images/logo16.png",
+      "48": "assets/images/logo48.png",
+      "128": "assets/images/logo.png"
+    }
   },
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "/assets/content.js"
-      ]
+      "matches": ["<all_urls>"],
+      "js": ["/assets/content.js"]
     }
   ],
   "background": {
@@ -58,4 +63,5 @@
     "page": "assets/settings/settings.html",
     "open_in_tab": true
   }
+  
 }
